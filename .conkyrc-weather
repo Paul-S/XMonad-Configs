@@ -1,0 +1,17 @@
+conky.config = {
+        background = false,
+        own_window_class = conky,
+        out_to_x = false,
+        out_to_console = true,
+        update_interval = 3,
+        total_run_times = 0,
+        use_spacer = 'none',
+};
+
+conky.text =
+[[^fg(\#63ff33)${execpi 3600 ~/scripts/weather.lua}^fg()     \
+^fg(\#73C6B6)^i(/home/paul/icons/stlarch-icons/cpu9.xbm) ^fg(\#73C6B6)${cpu cpu1}%     \
+^fg(\#ffffff)${if_match "${acpiacadapter}" == "on-line"} ^i(/home/paul/.icons/dzen2/xbm8x8/ac.xbm)^fg()^fg(\#EEEEEE)$else${if_match ${battery_percent BAT0} > 66}^bg(\#A9F3A9)^fg(\#63AE6D) ^i(/home/paul/.icons/dzen2/xbm8x8/bat_full_02.xbm)^fg()$else${if_match ${battery_percent BAT0} > 33}^bg(\#FFF2B1)^fg(\#FFAE73) ^i(/home/paul/.icons/dzen2/xbm8x8/bat_low_02.xbm)^fg()$else^bg(\#FFB1B1) ^fg(\#BF3030)^i(/home/paul/.icons/dzen2/xbm8x8/bat_empty_02.xbm)^fg()$endif$endif^fg(\#555555)$endif ${if_match ${battery_percent} < 10} $else${if_match ${battery_percent} < 100} $endif$endif${battery_percent}%^fg()^bg()     \
+^fg(\#fea63c)^i(/home/paul/.icons/dzen2/xbm8x8/wifi_01.xbm) ^fg(\#fea63c)^i(/home/paul/.icons/dzen2/xbm8x8/net_down_02.xbm) ^fg(\#fea63c)${downspeedf wlp4s0}k ^fg(\#fea63c)^i(/home/paul/.icons/dzen2/xbm8x8/net_up_02.xbm) ^fg(\#fea63c)${upspeedf wlp4s0}k^fg()     \
+^fg(\#00ccff)^i(/home/paul/icons/stlarch-icons/clock1.xbm) ^fg(\#00ccff)${time %b %d %H:%M}^fg()
+]]; 
